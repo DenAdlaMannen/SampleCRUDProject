@@ -1,0 +1,26 @@
+﻿@page
+@model CRUD.Pages.Products.UpdateProductModel
+
+
+<h1>Update Product</h1>
+<div class="d-flex">
+    <form method="post" class="w-25">
+        <label for="Name">Name</label>
+        <input id="Name" type="text" asp-for="@Model.Product.Name" class="float-lg-end" />
+        <br />
+        <br />
+
+        <label for="Name">Price</label>
+        <input id="Name" type="text" asp-for="@Model.Product.Price" class="float-lg-end" />
+        <br />
+        <br />
+
+        <label for="Name">Description</label>
+        <textarea id="Name" type="text" asp-for="@Model.Product.Description" class="float-lg-end"></textarea>
+        <br />
+        <br />
+        <input hidden asp-for="@Model.Product.ProductId"/>
+
+        <input type="submit" class="btn btn-primary " style="margin-top:2em" value="Update"/>
+    </form>
+</div>

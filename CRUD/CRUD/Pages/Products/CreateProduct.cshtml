@@ -1,0 +1,25 @@
+﻿@page
+@model CRUD.Pages.Products.CreateProductModel
+@{
+}
+<h1>Create Product</h1>
+<div class="d-flex">
+    <form method="post" class="w-25">
+        <label for="Name">Name</label>
+        <input id="Name" type="text" asp-for="@Model.Product.Name" placeholder="Product Name" class="float-lg-end" />
+        <br />
+        <br />
+
+        <label for="Name">Price</label>
+        <input id="Name" type="text" asp-for="@Model.Product.Price" placeholder="Product Name" class="float-lg-end" />
+        <br />
+        <br />
+
+        <label for="Name">Description</label>
+        <textarea id="Name" type="text" asp-for="@Model.Product.Description" placeholder="Product Name" class="float-lg-end"></textarea>
+        <br />
+        <br />
+        <input type="submit" class="btn btn-primary " style="margin-top:2em" value="Create"/>
+
+    </form>
+</div>

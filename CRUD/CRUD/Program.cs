@@ -1,3 +1,6 @@
+using CRUD.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace CRUD
 {
     public class Program
@@ -8,6 +11,10 @@ namespace CRUD
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<RentersContext>(options => options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnection")
+                ));
 
             var app = builder.Build();
 

@@ -1,0 +1,196 @@
+USE [master]
+GO
+/****** Object:  Database [Renters]    Script Date: 2023-04-29 18:19:10 ******/
+CREATE DATABASE [Renters]
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Renters].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Renters] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Renters] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Renters] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Renters] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Renters] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Renters] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Renters] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Renters] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Renters] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Renters] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Renters] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Renters] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Renters] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Renters] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Renters] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Renters] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Renters] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Renters] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Renters] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Renters] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Renters] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Renters] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Renters] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Renters] SET  MULTI_USER 
+GO
+ALTER DATABASE [Renters] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Renters] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Renters] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Renters] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Renters] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Renters] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Rentersss', N'ON'
+GO
+ALTER DATABASE [Renters] SET QUERY_STORE = OFF
+GO
+USE [Renters]
+GO
+/****** Object:  Table [dbo].[Customer]    Script Date: 2023-04-29 18:19:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
+	[Firstname] [nvarchar](50) NOT NULL,
+	[Lastname] [nvarchar](50) NOT NULL,
+	[Adress] [nvarchar](255) NOT NULL,
+	[Phone] [nvarchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Product]    Script Date: 2023-04-29 18:19:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Product](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
+	[Price] [int] NOT NULL,
+	[Description] [nvarchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Rent]    Script Date: 2023-04-29 18:19:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Rent](
+	[RentsID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductsID] [int] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RentsID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Customer] ON 
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (1, N'Olle', N'Persson', N'Bovägen 12 Götene', N'070385442')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (3, N'Stina', N'Karlsson', N'Svampstigen 12 Skara', N'073842748')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (4, N'Sven', N'Ingmyr', N'Skepparevägen 33 Hönö', N'074728847')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (5, N'Albert', N'Sjöberg', N'Fredshamnsvägen 22 Lidköping ', N'087728487')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (6, N'Svante ', N'Haraldsson', N'Bankvägen 12 Linköping', N'0762747293')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (7, N'Peter', N'Karlsson', N'Hittepåvägen 55 Staden', N'22222')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (14, N'Magnus', N'Larsson', N'Hittepåvägen 42 Staden', N'078274882')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (15, N'Julia', N'Isaksson', N'Mobergs väg 23', N'0702881167')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (16, N'Julia', N'Isaksson', N'Hittepåvägen 42 Staden', N'0762747222')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Firstname], [Lastname], [Adress], [Phone]) VALUES (17, N'Ulrika', N'Nilsson', N'Yngevögatan 33 Ulrikshamn', N'0743770297')
+GO
+SET IDENTITY_INSERT [dbo].[Customer] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Product] ON 
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (1, N'Car', 70, N'Really lovley car to rent')
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (2, N'Mc', 55, N'The best bang for your buck')
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (3, N'Mower', 29, N'If you need a nice looking lawn')
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (4, N'STIHL 362', 28, N'Excellent STIHL chainsaw 362')
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (5, N'STIHL 261', 19, N'Great chainsaw for most small to medium sized trees')
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (21, N'Bicycle', 10, N'Red electric bicycle with two brakes.')
+GO
+INSERT [dbo].[Product] ([ProductID], [Name], [Price], [Description]) VALUES (23, N'Golfcar', 47, N'Saftey roof of metal. Secondhanded. Drives perfect. Year 1995.')
+GO
+SET IDENTITY_INSERT [dbo].[Product] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Rent] ON 
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (11, 1, 1)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (12, 2, 4)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (13, 1, 5)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (14, 5, 5)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (24, 2, 15)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (25, 2, 16)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (26, 3, 16)
+GO
+INSERT [dbo].[Rent] ([RentsID], [ProductsID], [CustomerID]) VALUES (27, 23, 17)
+GO
+SET IDENTITY_INSERT [dbo].[Rent] OFF
+GO
+ALTER TABLE [dbo].[Rent]  WITH CHECK ADD FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Rent]  WITH CHECK ADD FOREIGN KEY([ProductsID])
+REFERENCES [dbo].[Product] ([ProductID])
+GO
+USE [master]
+GO
+ALTER DATABASE [Renters] SET  READ_WRITE 
+GO

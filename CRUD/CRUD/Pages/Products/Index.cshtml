@@ -5,6 +5,15 @@
 
 <div class="d-flex flex-row"></div>
 <h2 style="margin-bottom: 2em">All current products</h2>
+
+
+@{
+    if (TempData["WarningMessage"] != null)
+    {
+        <h3 style="color:red;">@TempData["WarningMessage"]</h3>
+    }
+}
+
 <a asp-page="CreateProduct" class="btn btn-outline-primary" style="margin-bottom: 1em"><i class="bi bi-plus-circle"></i> Create Product</a>
 @{
     <table class="table table-bordered table-striped">

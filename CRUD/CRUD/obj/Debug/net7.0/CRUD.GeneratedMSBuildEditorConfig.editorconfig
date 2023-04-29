@@ -44,6 +44,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcVXBkYXRlUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Skolprojekt/SampleProj/SampleCRUDProject/CRUD/CRUD/Pages/Rentals/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGFsc1xDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Skolprojekt/SampleProj/SampleCRUDProject/CRUD/CRUD/Pages/Rentals/CurrentRentals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGFsc1xDdXJyZW50UmVudGFscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Skolprojekt/SampleProj/SampleCRUDProject/CRUD/CRUD/Pages/Rentals/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGFsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Skolprojekt/SampleProj/SampleCRUDProject/CRUD/CRUD/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

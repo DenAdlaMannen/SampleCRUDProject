@@ -1,0 +1,19 @@
+﻿@page
+@model CRUD.Pages.Rentals.IndexModel
+
+<h1>Pick product</h1>
+<br />
+<h5>Hold CTRL to select multiple products and
+    scroll to reveal more.
+</h5>
+<form method="post">
+    <select class="form-select" multiple name="itemIds">
+        @{
+            foreach (var product in Model.Products)
+            {
+                <option value="@product.ProductId">@product.Name</option>
+            }
+        }
+    </select>
+    <input type="submit" class="btn btn-primary" style="margin-top: 1em" value="Continue to checkout" asp-page-handler="ToCheckout"/>
+</form>

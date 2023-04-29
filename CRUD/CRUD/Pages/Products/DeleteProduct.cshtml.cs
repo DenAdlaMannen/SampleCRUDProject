@@ -14,13 +14,23 @@ namespace CRUD.Pages.Products
         {
             _db = db;
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Product = _db.Products.FirstOrDefault(x => x.ProductId == id);
 
-            _db.Products.Remove(Product);
-            _db.SaveChanges();
-            RedirectToPage("Index");
+            bool isUsedInRents = _db.Rents.Any(r => r.ProductsId == id);
+
+            if (isUsedInRents)
+            {
+                TempData["WarningMessage"] = "This product cannot be deleted at the moment, as it is rentent.";
+            }
+            else
+            {
+                _db.Products.Remove(Product);
+                _db.SaveChanges();
+            }
+
+            return RedirectToPage("Index");
         }
     }
 }

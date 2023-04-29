@@ -1,0 +1,32 @@
+﻿@page
+@model CRUD.Pages.Rentals.CurrentRentalsModel
+@{
+}
+<h1>Current Rentals</h1>
+
+
+@{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Products</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Rents)
+            {
+                    <tr>
+                        <td>@item.Customer.Firstname @item.Customer.Lastname</td>
+                        <td>@item.Products.Name</td>
+                    </tr>
+            }
+        </tbody>
+
+    </table>
+
+
+
+
+}
